@@ -9,9 +9,21 @@
 ![Mi Foto](Diter/diterperfil.png)
 
 Rol: Lider, Programador  
-Ubicaci�n: Soacha, Cundinamarca, Colombia.  
-Perfil: Estudiante de Ingenieria Multimedia interesado en el mundo del dise�o, produccion audiovisual, animacion y programaci�n.
+Ubicaci�n: Soacha, Cundinamarca, Colombia.  
+Perfil: Estudiante de Ingenieria Multimedia interesado en el mundo del dise�o, produccion audiovisual, animacion y programaci�n.
 
 ---
+
+![Foto de Camilo] (foto-camilo.jpg)
+# Camilo Morales
+**Rol:** Programador / Animador / Diseño Sonoro
+**Ubicacion:** Bogotá, Colombia
+**Perfil:** Productor multimedia con experiencia en la conceptualización creativa hasta la ejecución técnica de proyectos en áreas como:
+- Diseño gráfico  
+- Producción audiovisual  
+- Producción musical  
+- Desarrollo web  
+- Desarrollo de videojuegos
+
 
 
