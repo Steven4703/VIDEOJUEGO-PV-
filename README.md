@@ -2,7 +2,7 @@
 
 ## Carlos Basallo Medina
 
-![My photo](Mi_Foto.jpg)
+![My photo](mi_foto.jpg)
 
 **Rol en la industria:** System Designer, QA Game Tester
 **Ubicación:** Funza, Cundinamarca, Colombia
