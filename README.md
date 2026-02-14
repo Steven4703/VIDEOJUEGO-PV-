@@ -11,3 +11,28 @@
 ### Profile
 I am a Multimedia Engineering student, passionate about video games and technology. I am motivated to learn about every stage of the process, from development to the design of games that have impacted the world.
 ____
+# Equipo 16
+
+---
+
+## Diter Rico
+
+![Mi Foto](Diter/diterperfil.png)
+
+Role: Leadership, Programamer, Designer  
+Place: Soacha, Cundinamarca, Colombia.  
+Profile: Multimedia Engineering student interested in the world of design, audiovisual production, animation and programming.
+
+---
+
+# Camilo Morales
+![Foto de Camilo](Camilo/fotocamilo.jpg)
+**Rol:** Programmer / Animator / Audio Design
+**Place:** Bogotá, Colombia
+**Profile:** Multimedia producer with experience in the creative conceptualization through the technical execution of projects in areas such as:
+- Graphic design 
+- Audiovisual producer  
+- Game development
+
+
+
