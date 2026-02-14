@@ -2,7 +2,7 @@
 
 ## Carlos Basallo
 
-![Profile Picture](Carlos/mi_foto.jpg)
+![Profile Picture](Carlos/mifoto.jpg)
 
 **Industry Role:** System Designer / QA Game Tester  
 **Location:** Funza, Cundinamarca, Colombia
