@@ -36,7 +36,7 @@ Profile: Multimedia Engineering student interested in the world of design, audio
 
 ## 👩‍💻 Leidy Dionicio
 
-![Profile Photo](Leidy/person.jpg)
+![Profile Photo](Leidy/person.jpeg)
 
 **Role in the Industry:** Video Game Designer  
 **Location:** Bojacá, Cundinamarca, Colombia  
