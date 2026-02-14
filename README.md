@@ -10,4 +10,5 @@
 
 ### Profile
 I am a Multimedia Engineering student, passionate about video games and technology. I am motivated to learn about every stage of the process, from development to the design of games that have impacted the world.
+___
 
