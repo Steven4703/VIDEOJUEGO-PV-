@@ -14,16 +14,14 @@ Profile: Multimedia Engineering student interested in the world of design, audio
 
 ---
 
-![Foto de Camilo] (foto-camilo.jpg)
+![Foto de Camilo] (foto-camilo.jpg/camilo)
 # Camilo Morales
-**Rol:** Programador / Animador / Diseño Sonoro
-**Ubicacion:** Bogotá, Colombia
-**Perfil:** Productor multimedia con experiencia en la conceptualización creativa hasta la ejecución técnica de proyectos en áreas como:
-- Diseño gráfico  
-- Producción audiovisual  
-- Producción musical  
-- Desarrollo web  
-- Desarrollo de videojuegos
+**Rol:** Programmer / Animator / Audio Design
+**Place:** Bogotá, Colombia
+**Profile:** Multimedia producer with experience in the creative conceptualization through the technical execution of projects in areas such as:
+- Graphic design 
+- Audiovisual producer  
+- Game development
 
 
 
