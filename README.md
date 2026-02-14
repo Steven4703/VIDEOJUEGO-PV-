@@ -14,7 +14,7 @@ Profile: Multimedia Engineering student interested in the world of design, audio
 
 ---
 
-![Foto de Camilo] (foto-camilo.jpg/camilo)
+![Foto de Camilo] (camilo/foto-camilo.jpg)
 # Camilo Morales
 **Rol:** Programmer / Animator / Audio Design
 **Place:** Bogotá, Colombia
