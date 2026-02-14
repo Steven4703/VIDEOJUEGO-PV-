@@ -8,9 +8,9 @@
 
 ![Mi Foto](Diter/diterperfil.png)
 
-Rol: Lider, Programador  
-Ubicaci�n: Soacha, Cundinamarca, Colombia.  
-Perfil: Estudiante de Ingenieria Multimedia interesado en el mundo del dise�o, produccion audiovisual, animacion y programaci�n.
+Role: Leadership, Programamer, Designer  
+Place: Soacha, Cundinamarca, Colombia.  
+Profile: Multimedia Engineering student interested in the world of design, audiovisual production, animation and programming.
 
 ---
 
