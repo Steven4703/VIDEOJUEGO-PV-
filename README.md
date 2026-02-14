@@ -1,10 +1,11 @@
-# VIDEOJUEGO-PV-
+# VIDEO GAME-PV
+
 ## 👩‍💻 Leidy Dionicio
 
-![Foto personal](Leidy/foto_leidy.jpg)
+![Profile Photo](Leidy/profile_leidy.jpg)
 
-**Rol en la industria:** Diseñadora de videojuegos  
-**Ubicación:** Bojacá, Cundinamarca, Colombia  
+**Role in the Industry:** Video Game Designer  
+**Location:** Bojacá, Cundinamarca, Colombia  
 
-**Perfil:**  
-Soy estudiante interesada en el desarrollo de videojuegos, con afinidad por el diseño visual y la animación. Me motiva aprender sobre motores de desarrollo y el trabajo colaborativo.
+**Profile:**  
+I am a student interested in video game development, with a strong affinity for visual design and animation. I am motivated to learn about game engines and collaborative work.
