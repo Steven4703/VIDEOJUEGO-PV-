@@ -1,11 +1,11 @@
 # VIDEOJUEGO-PV-
 
-## Carlos Basallo Medina
+## Carlos Basallo
 
-![My photo](mi_foto.jpg)
+![Profile Picture](mi_foto.jpg)
 
-**Rol en la industria:** System Designer, QA Game Tester
-**Ubicación:** Funza, Cundinamarca, Colombia
+**Industry Role:** System Designer / QA Game Tester  
+**Location:** Funza, Cundinamarca, Colombia
 
-### Perfil
-Soy estudiante de Ingeniería Multimedia, apasionada por los videojuegos y la tecnología. Me motiva aprender sobre todas las etapas del proceso, desde el desarrollo hasta el diseño de los juegos que han impactado al mundo.
+### Profile
+I am a Multimedia Engineering student, passionate about video games and technology. I am motivated to learn about every stage of the process, from development to the design of games that have impacted the world.
