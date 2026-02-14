@@ -20,7 +20,7 @@ ____
 ![Mi Foto](Diter/diterperfil.png)
 
 Role: Leadership, Programamer, Designer  
-Place: Soacha, Cundinamarca, Colombia.  
+Location: Soacha, Cundinamarca, Colombia.  
 Profile: Multimedia Engineering student interested in the world of design, audiovisual production, animation and programming.
 
 ---
@@ -28,7 +28,7 @@ Profile: Multimedia Engineering student interested in the world of design, audio
 # Camilo Morales
 ![Foto de Camilo](Camilo/fotocamilo.jpg)
 **Rol:** Programmer / Animator / Audio Design
-**Place:** Bogotá, Colombia
+**Location:** Bogotá, Colombia
 **Profile:** Multimedia producer with experience in the creative conceptualization through the technical execution of projects in areas such as:
 - Graphic design 
 - Audiovisual producer  
