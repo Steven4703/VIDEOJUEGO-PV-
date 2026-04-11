@@ -442,6 +442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2595e255648e8e445886cb79e0e59a87, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 414d73aaaea3fb14e85f9e019f8b57ce, type: 2}
     - target: {fileID: 919132149155446097, guid: 2595e255648e8e445886cb79e0e59a87, type: 3}
       propertyPath: m_Name
       value: Jugador 2
@@ -658,6 +662,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2595e255648e8e445886cb79e0e59a87, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 414d73aaaea3fb14e85f9e019f8b57ce, type: 2}
     - target: {fileID: 919132149155446097, guid: 2595e255648e8e445886cb79e0e59a87, type: 3}
       propertyPath: m_Name
       value: Jugador 1
@@ -761,6 +769,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d74feb9ee5740eb44901bc7813a940a3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f4cb70a13cef3f4ea3fd5b3e0611c39, type: 2}
     - target: {fileID: 919132149155446097, guid: d74feb9ee5740eb44901bc7813a940a3, type: 3}
       propertyPath: m_Name
       value: MeteoricStageFBX
