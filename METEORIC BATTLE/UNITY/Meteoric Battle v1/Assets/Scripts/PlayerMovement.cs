@@ -2,45 +2,73 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveForce = 8f;
-    public float maxSpeed = 2f;
-    public float dragWhenIdle = 4f;
-    public float rotationSpeed = 10f;
-    public float tiltAmount = 15f;
+    public float moveSpeed = 1f;
+    public float fallLimit = -5f;
+
+    public float pushForce = 4f;
 
     public string horizontalAxis = "Horizontal";
     public string verticalAxis = "Vertical";
 
     private Rigidbody rb;
+    private GameManager gameManager;
+    private bool isEliminated = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void FixedUpdate()
     {
+        if (isEliminated) return;
+
         float moveX = Input.GetAxis(horizontalAxis);
         float moveZ = Input.GetAxis(verticalAxis);
 
-        Vector3 movement = new Vector3(moveX, 0f, moveZ);
+        Vector3 movement = new Vector3(-moveX, 0f, -moveZ).normalized;
 
-        if (movement.magnitude > 0.1f)
+        Vector3 targetVelocity = movement * moveSpeed;
+
+        rb.velocity = new Vector3(
+            targetVelocity.x,
+            rb.velocity.y,
+            targetVelocity.z
+        );
+
+        CheckFall();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        PlayerMovement otherPlayer = collision.gameObject.GetComponent<PlayerMovement>();
+
+        if (otherPlayer != null)
         {
-            rb.drag = 1f;
-            rb.AddForce(movement * moveForce, ForceMode.Acceleration);
+            Rigidbody otherRb = collision.gameObject.GetComponent<Rigidbody>();
+
+            if (otherRb != null)
+            {
+                Vector3 pushDirection = collision.transform.position - transform.position;
+                pushDirection.y = 0f;
+                pushDirection.Normalize();
+
+                otherRb.AddForce(pushDirection * pushForce, ForceMode.Impulse);
+            }
         }
-        else
-        {
-            rb.drag = dragWhenIdle;
-        }
+    }
 
-        Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        if (horizontalVelocity.magnitude > maxSpeed)
+    void CheckFall()
+    {
+        if (transform.position.y < fallLimit)
         {
-            Vector3 limitedVelocity = horizontalVelocity.normalized * maxSpeed;
-            rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z);
+            isEliminated = true;
+
+            if (gameManager != null)
+            {
+                gameManager.PlayerDied(gameObject);
+            }
         }
     }
 }

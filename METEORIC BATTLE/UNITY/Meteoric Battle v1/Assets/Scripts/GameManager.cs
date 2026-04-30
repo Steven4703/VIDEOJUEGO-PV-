@@ -1,16 +1,31 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    /*Variables for the pause menu*/
     public GameObject pauseMenuUI;
     public bool isPaused = false;
-    /*public GameObject hudCanvas;*/
+
+    public GameObject[] players;
+    private int playersAlive;
+
+    // UI de victoria
+    public GameObject winPanel;
+    public Text winText;
+
+    void Start()
+    {
+        playersAlive = players.Length;
+
+        if (winPanel != null)
+        {
+            winPanel.SetActive(false);
+        }
+    }
 
     void Update()
     {
-        /*Pause button*/
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -20,66 +35,82 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*Function to continue the game*/
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-        /*hudCanvas.SetActive(true); // Mostrar HUD*/
-
-        // Hide and lock the cursor
-        /*Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;*/
     }
 
-    /*Function to pause the game*/
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-        /*hudCanvas.SetActive(false); // Hide HUD*/
-
-        // Show and unlock cursor
-        /*Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;*/
     }
 
-    /*Function to restart the game*/
     public void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    /*Function to start the game*/
     public void PlayGame()
     {
         SceneManager.LoadScene("Gameplay");
     }
 
-    /*Function to exit the game*/
     public void QuitGame()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#else
         Application.Quit();
-        #endif
+#endif
     }
 
-    /*Function to activate gameover canvas*/
-    /*public void HideHUDOnGameOver()
-    {
-        hudCanvas.SetActive(false);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-    }*/
-
-    /*Function to go to the home screen*/
-    public void MenuP()
+    public void Menu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void PlayerDied(GameObject player)
+    {
+        player.SetActive(false);
+        playersAlive--;
+
+        if (playersAlive == 1)
+        {
+            DeclareWinner();
+        }
+    }
+
+    void DeclareWinner()
+    {
+        foreach (GameObject player in players)
+        {
+            if (player.activeSelf)
+            {
+                string winnerName = player.name;
+                Debug.Log("Winner: " + winnerName);
+
+                ShowWinner(winnerName);
+            }
+        }
+    }
+
+    void ShowWinner(string winnerName)
+    {
+        Time.timeScale = 0f;
+
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+        }
+
+        if (winText != null)
+        {
+            winText.text = "Winner: " + winnerName;
+        }
     }
 }
