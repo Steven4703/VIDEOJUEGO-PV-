@@ -1,31 +1,90 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    //Time
+    [Header("Timer")]
+    public float matchTime = 60f;
+    public TMPro.TMP_Text timerText;
+    private bool matchEnded = false;
+
+    //Gameplay
+    [Header("Gameplay")]
     public GameObject pauseMenuUI;
     public bool isPaused = false;
 
+    //Players
+    [Header("Players")]
+    public GameObject[] playerPrefabs; 
+    public Transform[] spawnPoints; 
     public GameObject[] players;
     private int playersAlive;
 
-    // UI de victoria
+    //Victory
+    [Header("UI Victoria")]
     public GameObject winPanel;
-    public Text winText;
+    public TMP_Text winText;
+
+    public HUDManager hudManager;
 
     void Start()
     {
+        Time.timeScale = 1f;
+
+        //Players
+
+        players = new GameObject[2];
+
+        players[0] = Instantiate(
+            playerPrefabs[CharacterSelectTurnManager.player1Character],
+            spawnPoints[0].position,
+            Quaternion.identity
+        );
+
+        players[1] = Instantiate(
+            playerPrefabs[CharacterSelectTurnManager.player2Character],
+            spawnPoints[1].position,
+            Quaternion.identity
+        );
+
+        if (hudManager != null)
+        {
+            hudManager.SetupHUD();
+        }
+
+        //Controls
+
+        AssignControls();
+
         playersAlive = players.Length;
 
         if (winPanel != null)
-        {
             winPanel.SetActive(false);
-        }
     }
 
     void Update()
     {
+
+    //Timer
+        
+    if (matchEnded) return;
+
+        matchTime -= Time.deltaTime;
+        matchTime = Mathf.Max(matchTime, 0f);
+
+        UpdateTimerUI();
+
+        if (matchTime <= 0f)
+        {
+            CheckDraw();
+        }
+
+        //Pause Buttom
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -34,6 +93,19 @@ public class GameManager : MonoBehaviour
                 Pause();
         }
     }
+
+    //Control assignment
+
+    void AssignControls()
+    {
+        players[0].GetComponent<PlayerMovement>().horizontalAxis = "Horizontal_P1";
+        players[0].GetComponent<PlayerMovement>().verticalAxis = "Vertical_P1";
+
+        players[1].GetComponent<PlayerMovement>().horizontalAxis = "Horizontal_P2";
+        players[1].GetComponent<PlayerMovement>().verticalAxis = "Vertical_P2";
+    }
+
+    //Buttom Methods
 
     public void Resume()
     {
@@ -55,24 +127,22 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void PlayGame()
+    public void Menu()
     {
-        SceneManager.LoadScene("Gameplay");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
-    public void Menu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
+    //Victory Conditions
 
     public void PlayerDied(GameObject player)
     {
@@ -80,23 +150,26 @@ public class GameManager : MonoBehaviour
         playersAlive--;
 
         if (playersAlive == 1)
-        {
             DeclareWinner();
-        }
     }
 
     void DeclareWinner()
+    {   
+    if (players[0].activeSelf)
     {
-        foreach (GameObject player in players)
-        {
-            if (player.activeSelf)
-            {
-                string winnerName = player.name;
-                Debug.Log("Winner: " + winnerName);
+        string characterName =
+            playerPrefabs[CharacterSelectTurnManager.player1Character].name;
 
-                ShowWinner(winnerName);
-            }
-        }
+        ShowWinner("Jugador 1 - " + characterName);
+    }
+    else if (players[1].activeSelf)
+    {
+        string characterName =
+            playerPrefabs[CharacterSelectTurnManager.player2Character].name;
+
+        ShowWinner("Jugador 2 - " + characterName);
+    }
+
     }
 
     void ShowWinner(string winnerName)
@@ -104,13 +177,34 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
 
         if (winPanel != null)
-        {
             winPanel.SetActive(true);
-        }
 
         if (winText != null)
-        {
             winText.text = "Winner: " + winnerName;
-        }
     }
+
+    //Time Controller
+    
+    void UpdateTimerUI()
+    {
+        int minutes = Mathf.FloorToInt(matchTime / 60f);
+        int seconds = Mathf.FloorToInt(matchTime % 60f);
+
+        if (timerText != null)
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    
+    void CheckDraw()
+    {
+        matchEnded = true;
+        Time.timeScale = 0f;
+
+        if (winPanel != null)
+            winPanel.SetActive(true);
+
+        if (winText != null)
+            winText.text = "EMPATE";
+    }
+
 }
