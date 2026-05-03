@@ -6,6 +6,11 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    //VFX Last 30s
+    [Header("30 Seconds Effects")]
+    public GameObject effects30Seconds;
+    private bool effects30Activated = false;
+
     //Time
     [Header("Timer")]
     public float matchTime = 60f;
@@ -82,6 +87,19 @@ public class GameManager : MonoBehaviour
         {
             CheckDraw();
         }
+
+    //VFX Last 30s
+        
+    if (!effects30Activated && matchTime <= 30f)
+        {
+            Activate30SecondsEffects();
+        }
+
+        if (matchTime <= 0f)
+        {
+            CheckDraw();
+        }
+
 
         //Pause Buttom
 
@@ -206,5 +224,16 @@ public class GameManager : MonoBehaviour
         if (winText != null)
             winText.text = "EMPATE";
     }
+
+    //VFX Activate
+
+    void Activate30SecondsEffects()
+    {
+        effects30Activated = true;
+
+        if (effects30Seconds != null)
+            effects30Seconds.SetActive(true);
+    }
+
 
 }
