@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     //Gameplay
     [Header("Gameplay")]
     public GameObject pauseMenuUI;
+    public GameObject hud;
     public bool isPaused = false;
 
     //Players
@@ -128,6 +129,10 @@ public class GameManager : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+
+        if (hud != null)
+            hud.SetActive(true);
+
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -135,6 +140,10 @@ public class GameManager : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+
+        if (hud != null)
+            hud.SetActive(false);
+
         Time.timeScale = 0f;
         isPaused = true;
     }
