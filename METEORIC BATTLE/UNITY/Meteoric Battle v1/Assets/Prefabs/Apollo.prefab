@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crashClip: {fileID: 8300000, guid: 57c4e60b03d704850b69de92c2d9cac4, type: 3}
+  efectoChispas: {fileID: 2931841081884769288, guid: 6bca487e4675d432eaa88cb8817573f1, type: 3}
 --- !u!114 &-1322066642520073507
 MonoBehaviour:
   m_ObjectHideFlags: 0
