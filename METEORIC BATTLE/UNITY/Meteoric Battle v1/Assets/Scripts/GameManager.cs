@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +8,7 @@ public class GameManager : MonoBehaviour
     //VFX Last 30s
     [Header("30 Seconds Effects")]
     public GameObject effects30Seconds;
+    public AudioSource musicaDeFondo; // Variable añadida para la música
     private bool effects30Activated = false;
 
     //Time
@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
 
     //Players
     [Header("Players")]
-    public GameObject[] playerPrefabs; 
-    public Transform[] spawnPoints; 
+    public GameObject[] playerPrefabs;
+    public Transform[] spawnPoints;
     public GameObject[] players;
     private int playersAlive;
 
@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         //Players
-
         players = new GameObject[2];
 
         players[0] = Instantiate(
@@ -63,7 +62,6 @@ public class GameManager : MonoBehaviour
         }
 
         //Controls
-
         AssignControls();
 
         playersAlive = players.Length;
@@ -74,24 +72,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
-    //Timer
-        
-    if (matchEnded) return;
+        //Timer
+        if (matchEnded) return;
 
         matchTime -= Time.deltaTime;
         matchTime = Mathf.Max(matchTime, 0f);
 
         UpdateTimerUI();
 
-        if (matchTime <= 0f)
-        {
-            CheckDraw();
-        }
-
-    //VFX Last 30s
-        
-    if (!effects30Activated && matchTime <= 30f)
+        //VFX & Music Last 30s
+        if (!effects30Activated && matchTime <= 30f)
         {
             Activate30SecondsEffects();
         }
@@ -101,9 +91,7 @@ public class GameManager : MonoBehaviour
             CheckDraw();
         }
 
-
-        //Pause Buttom
-
+        //Pause Button
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -114,7 +102,6 @@ public class GameManager : MonoBehaviour
     }
 
     //Control assignment
-
     void AssignControls()
     {
         players[0].GetComponent<PlayerMovement>().horizontalAxis = "Horizontal_P1";
@@ -124,8 +111,7 @@ public class GameManager : MonoBehaviour
         players[1].GetComponent<PlayerMovement>().verticalAxis = "Vertical_P2";
     }
 
-    //Buttom Methods
-
+    //Button Methods
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -162,15 +148,14 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
     }
 
     //Victory Conditions
-
     public void PlayerDied(GameObject player)
     {
         player.SetActive(false);
@@ -181,22 +166,17 @@ public class GameManager : MonoBehaviour
     }
 
     void DeclareWinner()
-    {   
-    if (players[0].activeSelf)
     {
-        string characterName =
-            playerPrefabs[CharacterSelectTurnManager.player1Character].name;
-
-        ShowWinner("Jugador 1 - " + characterName);
-    }
-    else if (players[1].activeSelf)
-    {
-        string characterName =
-            playerPrefabs[CharacterSelectTurnManager.player2Character].name;
-
-        ShowWinner("Jugador 2 - " + characterName);
-    }
-
+        if (players[0].activeSelf)
+        {
+            string characterName = playerPrefabs[CharacterSelectTurnManager.player1Character].name;
+            ShowWinner("Jugador 1 - " + characterName);
+        }
+        else if (players[1].activeSelf)
+        {
+            string characterName = playerPrefabs[CharacterSelectTurnManager.player2Character].name;
+            ShowWinner("Jugador 2 - " + characterName);
+        }
     }
 
     void ShowWinner(string winnerName)
@@ -211,7 +191,6 @@ public class GameManager : MonoBehaviour
     }
 
     //Time Controller
-    
     void UpdateTimerUI()
     {
         int minutes = Mathf.FloorToInt(matchTime / 60f);
@@ -221,7 +200,6 @@ public class GameManager : MonoBehaviour
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    
     void CheckDraw()
     {
         matchEnded = true;
@@ -234,15 +212,19 @@ public class GameManager : MonoBehaviour
             winText.text = "EMPATE";
     }
 
-    //VFX Activate
-
+    //VFX & Audio Activate
     void Activate30SecondsEffects()
     {
         effects30Activated = true;
 
+        // Activa los efectos visuales (tornados, meteoros, etc)
         if (effects30Seconds != null)
             effects30Seconds.SetActive(true);
+
+        // Acelera la música
+        if (musicaDeFondo != null)
+        {
+            musicaDeFondo.pitch = 1.25f; // Sube la velocidad un 25%
+        }
     }
-
-
 }
