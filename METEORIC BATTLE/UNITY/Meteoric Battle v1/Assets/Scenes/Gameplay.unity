@@ -630,6 +630,7 @@ GameObject:
   - component: {fileID: 217841490}
   - component: {fileID: 217841489}
   - component: {fileID: 217841488}
+  - component: {fileID: 217841492}
   m_Layer: 5
   m_Name: Restart (1)
   m_TagString: Untagged
@@ -750,6 +751,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217841486}
   m_CullTransparentMesh: 1
+--- !u!95 &217841492
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217841486}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f962b574f1007154684278d6db7dfa25, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &332543525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,6 +2694,7 @@ GameObject:
   - component: {fileID: 1196053723}
   - component: {fileID: 1196053722}
   - component: {fileID: 1196053721}
+  - component: {fileID: 1196053725}
   m_Layer: 5
   m_Name: Exit (1)
   m_TagString: Untagged
@@ -2695,7 +2718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -300.4012}
+  m_AnchoredPosition: {x: 0, y: -300.4}
   m_SizeDelta: {x: 302.9709, y: 56.807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1196053721
@@ -2792,6 +2815,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196053719}
   m_CullTransparentMesh: 1
+--- !u!95 &1196053725
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196053719}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 884bc607a8ae0314180f06626aa709aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1257209262
 PrefabInstance:
   m_ObjectHideFlags: 0
