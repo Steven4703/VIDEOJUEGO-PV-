@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 64499346}
   - component: {fileID: 64499348}
   - component: {fileID: 64499347}
+  - component: {fileID: 64499349}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -277,6 +278,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64499345}
   m_CullTransparentMesh: 1
+--- !u!95 &64499349
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64499345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1925b4f6f9300ca4ab887b2db660f0c3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &129724070
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +653,7 @@ GameObject:
   - component: {fileID: 217841489}
   - component: {fileID: 217841488}
   - component: {fileID: 217841492}
+  - component: {fileID: 217841493}
   m_Layer: 5
   m_Name: Restart (1)
   m_TagString: Untagged
@@ -759,7 +782,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217841486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f962b574f1007154684278d6db7dfa25, type: 2}
   m_CullingMode: 0
@@ -772,6 +795,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &217841493
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217841486}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &332543525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,8 +1161,8 @@ RectTransform:
   m_Children:
   - {fileID: 2048730755}
   - {fileID: 156477180}
-  - {fileID: 1196053720}
   - {fileID: 217841487}
+  - {fileID: 1196053720}
   m_Father: {fileID: 1894006606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
