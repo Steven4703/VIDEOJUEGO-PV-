@@ -309,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   fallLimit: -5
-  pushForce: 4
+  pushForce: 12
   horizontalAxis: Horizontal
   verticalAxis: Vertical
 --- !u!1001 &5984708735211135831
