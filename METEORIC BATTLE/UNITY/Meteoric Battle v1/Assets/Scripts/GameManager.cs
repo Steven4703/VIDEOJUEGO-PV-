@@ -183,11 +183,18 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
 
+        // Stop background music so it doesn't overlap
+        if (musicaDeFondo != null)
+            musicaDeFondo.Stop();
+
         if (winPanel != null)
             winPanel.SetActive(true);
 
         if (winText != null)
             winText.text = "Winner: " + winnerName;
+
+        // Activates the victory sound object natively
+        winPanel.transform.Find("Panel/VictorySound")?.gameObject.SetActive(true);
     }
 
     //Time Controller
@@ -205,11 +212,18 @@ public class GameManager : MonoBehaviour
         matchEnded = true;
         Time.timeScale = 0f;
 
+        // Stop background music so it doesn't overlap
+        if (musicaDeFondo != null)
+            musicaDeFondo.Stop();
+
         if (winPanel != null)
             winPanel.SetActive(true);
 
         if (winText != null)
             winText.text = "EMPATE";
+
+        // Activates the draw sound object natively
+        winPanel.transform.Find("Panel/DrawSound")?.gameObject.SetActive(true);
     }
 
     //VFX & Audio Activate
