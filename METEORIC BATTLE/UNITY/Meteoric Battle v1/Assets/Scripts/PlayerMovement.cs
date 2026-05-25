@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private GameManager gameManager;
     private bool isEliminated = false;
 
+    public float rotationSpeed = 360f; // grados por segundo
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -28,6 +30,20 @@ public class PlayerMovement : MonoBehaviour
         float moveZ = Input.GetAxis(verticalAxis);
 
         Vector3 movement = new Vector3(-moveX, 0f, -moveZ).normalized;
+
+        // 👉 ROTACIÓN hacia donde se mueve
+        
+    if (movement != Vector3.zero)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(movement);
+
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
+        );
+    }
+
 
         Vector3 targetVelocity = movement * moveSpeed;
 
